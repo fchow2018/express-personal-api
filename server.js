@@ -62,6 +62,30 @@ app.get('/api', function apiIndex(req, res) {
 });
 
 /**********
+ * ROUTES *
+ **********/
+
+// get profile
+app.get('/api/profile', function showMyProfile(req, res){
+  var proj = db.Project.find({}, function(err, allProjects){
+    if (err) {
+      console.log(err);
+    } else {
+    res.json({
+        name: "Felix",
+        gitUserName: "fchow2018",
+        githubProfileImage: "https://avatars2.githubusercontent.com/u/34549985?s=400&v=4",
+        personalSiteLink: "http://fchow2018.github.io",
+        currentCity: "Fremont, California",
+        hockeyEquipment: [{type: "hockey stick", company: "CCM"}, {type: "helmet", company: "Bauer"}, {type: "gloves", company: "CCM"}, {type: "padding", company: "CCM"}, ],
+        hockeyEquipment: [{type: "hockey stick", company: "CCM"}, {type: "helmet", company: "Bauer"}, {type: "gloves", company: "CCM"}, {type: "skates", company: "CCM"}],
+        projects: allProjects
+      })
+    }
+  })
+})
+
+/**********
  * SERVER *
  **********/
 
