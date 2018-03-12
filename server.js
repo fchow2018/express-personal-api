@@ -53,7 +53,10 @@ app.get('/api', function apiIndex(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Who I am"},
-      {method: "POST", path: "/api/nhlteams", description: "Create a new NHL team"}
+      {method: "GET", path: "/api/nhlteams", description: "Index of all NHL teams"},
+      {method: "POST", path: "/api/nhlteams", description: "Create a new NHL team"},
+      {method: "PUT", path: "/api/nhlteams/:id", description: "Edit a previous NHL team entry and update it"},
+      {method: "DELETE", path: "/api/nhlteams/:id", description: "Destroy an NHL team"},
     ]
   })
 });
